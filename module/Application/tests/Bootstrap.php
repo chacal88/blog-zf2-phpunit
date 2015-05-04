@@ -1,7 +1,5 @@
 <?php
-use Zend\ServiceManager\ServiceManager;
-use Zend\Mvc\Service\ServiceManagerConfig;
-use Zend\Db\Adapter\Adapter;
+
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 
@@ -21,6 +19,8 @@ class Bootstrap
         chdir(dirname(__DIR__ . '/../../../..'));
 
         include 'init_autoloader.php';
+        
+        date_default_timezone_set('America/Sao_Paulo');
 
         define('ZF2_PATH', realpath('vendor/zendframework/zendframework/library'));
 

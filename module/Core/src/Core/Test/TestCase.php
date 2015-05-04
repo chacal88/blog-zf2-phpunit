@@ -4,7 +4,7 @@ namespace Core\Test;
 use Zend\Db\Adapter\Adapter;
 use Core\Db\TableGateway;
 use Zend\Mvc\Application;
-use Zend\Di\Di;
+use Zend\Di\Di; 
 use Zend\ServiceManager\ServiceManager;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\Mvc\MvcEvent;
@@ -118,7 +118,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 1;', Adapter::QUERY_MODE_EXECUTE);
         }
 
-        $queries = include \Bootstrap::getModulePath() . '/data/test.data.php';
+        $queries = include \Bootstrap::getModulePath() . '/Application/data/test.data.php';
         foreach ($queries as $query) {
             $dbAdapter->query($query['create'], Adapter::QUERY_MODE_EXECUTE);
         }
@@ -140,7 +140,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             $dbAdapter->query('SET FOREIGN_KEY_CHECKS = 0;', Adapter::QUERY_MODE_EXECUTE);
         }
 
-        $queries = include \Bootstrap::getModulePath() . '/data/test.data.php';
+        $queries = include \Bootstrap::getModulePath() . '/Application/data/test.data.php';
         foreach ($queries as $query) {
             $dbAdapter->query($query['drop'], Adapter::QUERY_MODE_EXECUTE);
         }

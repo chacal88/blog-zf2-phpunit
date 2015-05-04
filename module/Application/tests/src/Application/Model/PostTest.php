@@ -3,7 +3,6 @@ namespace Application\Model;
 
 use Core\Test\ModelTestCase;
 use Application\Model\Post;
-use Zend\InputFilter\InputFilterInterface;
 
 /**
  * @group Model
@@ -63,7 +62,7 @@ class PostTest extends ModelTestCase
 
     /**
      * @expectedException Core\Model\EntityException
-     * @expectedExceptionMessage Input invÃ¡lido: description = 
+     * @expectedExceptionMessage Input inválido: description = 
      */
     public function testInsertInvalido()
     {

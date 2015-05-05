@@ -46,7 +46,7 @@ class PostTest extends ModelTestCase
     }        
 
     /**
-     * Teste de inserÃ§Ã£o de um post vÃ¡lido
+     * Teste de inserção de um post válido
      */
     public function testInsert()
     {

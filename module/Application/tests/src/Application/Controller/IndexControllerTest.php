@@ -1,6 +1,11 @@
 <?php
+
 use Core\Test\ControllerTestCase;
+use Application\Controller\IndexController;
 use Application\Model\Post;
+use Zend\Http\Request;
+use Zend\Stdlib\Parameters;
+use Zend\View\Renderer\PhpRenderer;
 
 
 /**
@@ -8,18 +13,14 @@ use Application\Model\Post;
  */
 class IndexControllerTest extends ControllerTestCase
 {
-
     /**
      * Namespace completa do Controller
-     * 
      * @var string
      */
     protected $controllerFQDN = 'Application\Controller\IndexController';
 
     /**
-     * Nome da rota.
-     * Geralmente o nome do mÃ³dulo
-     * 
+     * Nome da rota. Geralmente o nome do mÃ³dulo
      * @var string
      */
     protected $controllerRoute = 'application';
@@ -43,28 +44,28 @@ class IndexControllerTest extends ControllerTestCase
         // Cria posts para testar
         $postA = $this->addPost();
         $postB = $this->addPost();
-        
+
         // Invoca a rota index
         $this->routeMatch->setParam('action', 'index');
         $result = $this->controller->dispatch($this->request, $this->response);
-        
+
         // Verifica o response
         $response = $this->controller->getResponse();
         $this->assertEquals(200, $response->getStatusCode());
-        
+
         // Testa se um ViewModel foi retornado
         $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
-        
+
         // Testa os dados da view
         $variables = $result->getVariables();
-        
+
         $this->assertArrayHasKey('posts', $variables);
-        
+
         // Faz a comparaÃ§Ã£o dos dados
         $controllerData = $variables["posts"];
         $this->assertEquals($postA->title, $controllerData[0]['title']);
         $this->assertEquals($postB->title, $controllerData[1]['title']);
-    }
+    }  
 
     /**
      * Adiciona um post para os testes
@@ -75,9 +76,9 @@ class IndexControllerTest extends ControllerTestCase
         $post->title = 'Apple compra a Coderockr';
         $post->description = 'A Apple compra a <b>Coderockr</b><br> ';
         $post->post_date = date('Y-m-d H:i:s');
-        
+
         $saved = $this->getTable('Application\Model\Post')->save($post);
-        
+
         return $saved;
     }
 }

@@ -13,7 +13,7 @@ use Core\Model\Entity;
  * @category Application
  * @package Model
  */
-class post extends Entity
+class Post extends Entity
 {
     /**
      * Nome da tabela. Campo obrigatÃ³rio

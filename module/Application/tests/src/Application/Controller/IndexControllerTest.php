@@ -108,7 +108,7 @@ public function testIndexActionPaginator()
     $result = $this->controller->dispatch($this->request, $this->response);
     $variables = $result->getVariables();
     $controllerData = $variables["posts"]->getCurrentItems()->toArray();
-    $this->assertEquals(5, count($controllerData));
+    $this->assertEquals(2, count($controllerData));
 }  
     /**
      * Adiciona um post para os testes

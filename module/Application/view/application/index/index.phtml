@@ -20,7 +20,7 @@
         <td><?php echo $this->escapeHtml($post['description']);?></td>
         <td class="center">
           <?php 
-            echo $this->dateFormat($post['post_date'], \IntlDateFormatter::SHORT, \IntlDateFormatter::SHORT, 'pt_BR');
+            echo $post['post_date'];
           ?>
         </td>
         <td class="center">

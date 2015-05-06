@@ -1,24 +1,45 @@
 <?php
 //queries used by tests
 return array(
-    'post' => array(
-        'create' => 'CREATE TABLE "post" (
-                      "id" INTEGER PRIMARY KEY NOT NULL,
-                      "title" varchar(100) NOT NULL,
-                      "body" text NOT NULL,
-                      "created" timestamp NOT NULL
-                    )',
-        'drop' => "DROP TABLE post"
+    'posts' => array(
+        'create' => 'CREATE  TABLE if not exists posts (
+                      id INT NOT NULL AUTO_INCREMENT ,
+                      title VARCHAR(250) NOT NULL ,
+                      description TEXT NOT NULL ,
+                      post_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+                      PRIMARY KEY (id) )
+                    ENGINE = InnoDB;',
+        'drop' => "DROP TABLE posts;"
     ),
-    'comment' => array(
-        'create' => 'CREATE TABLE "comment" (
-                      "id" integer primary key NOT NULL,
-                      "post_id" smallint(6) NOT NULL,
-                      "body" text NOT NULL,
-                      "email" varchar(100) NOT NULL,
-                      "created" timestamp NOT NULL,
-                      CONSTRAINT "fk_comment_post" FOREIGN KEY ("post_id") REFERENCES "post" ("id")
-                    )',
-        'drop' =>'drop table comment'
+    'comments' => array(
+        'create' => 'CREATE  TABLE if not exists comments (
+                      id INT NOT NULL AUTO_INCREMENT ,
+                      post_id INT NOT NULL ,
+                      description TEXT NOT NULL ,
+                      name VARCHAR(200) NOT NULL ,
+                       email VARCHAR(250) NOT NULL ,
+                     webpage VARCHAR(200) NOT NULL ,
+                      comment_date TIMESTAMP NULL ,
+                        PRIMARY KEY (id, post_id) ,
+                        INDEX fk_comments_posts (post_id ASC) ,
+                      CONSTRAINT fk_comments_posts
+                        FOREIGN KEY (post_id )
+                            REFERENCES posts (id )
+                            ON DELETE NO ACTION
+                           ON UPDATE NO ACTION)
+                    ENGINE = InnoDB;',
+        'drop' =>'drop table comments;'
+    ),
+    'users' => array(
+      'create' => 'CREATE TABLE if not exists users (
+                      id INT NOT NULL AUTO_INCREMENT ,
+                      username VARCHAR(200) NOT NULL ,
+                      password VARCHAR(250) NOT NULL ,
+                      name VARCHAR(200) NULL ,
+                      valid TINYINT NULL ,
+                      role VARCHAR(20) NULL ,
+                      PRIMARY KEY (id) )
+                    ENGINE = InnoDB;' ,
+      'drop'   => 'drop table users;',
     ),
 );

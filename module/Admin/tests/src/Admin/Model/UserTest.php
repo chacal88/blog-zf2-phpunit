@@ -77,7 +77,7 @@ class UserTest extends ModelTestCase
 
     /**
      * @expectedException Core\Model\EntityException
-     * @expectedExceptionMessage Input invÃ¡lido: username =
+     * @expectedExceptionMessage Input inválido: username =
      */
     public function testInsertInvalido()
     {

@@ -30,4 +30,16 @@ return array(
                     ENGINE = InnoDB;',
         'drop' =>'drop table comments;'
     ),
+    'users' => array(
+      'create' => 'CREATE TABLE if not exists users (
+                      id INT NOT NULL AUTO_INCREMENT ,
+                      username VARCHAR(200) NOT NULL ,
+                      password VARCHAR(250) NOT NULL ,
+                      name VARCHAR(200) NULL ,
+                      valid TINYINT NULL ,
+                      role VARCHAR(20) NULL ,
+                      PRIMARY KEY (id) )
+                    ENGINE = InnoDB;' ,
+      'drop'   => 'drop table users;',
+    ),
 );

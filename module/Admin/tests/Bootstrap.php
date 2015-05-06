@@ -12,7 +12,7 @@ class Bootstrap
 {
     static function getModulePath() 
     {
-        return dirname(__DIR__ . '/../../../module/Admin/');
+        return dirname(__DIR__ . '/../../../module/Admin');
     }
 
     static public function go()

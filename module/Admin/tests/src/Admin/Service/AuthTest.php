@@ -37,7 +37,7 @@ class AuthTest extends ServiceTestCase
     /**
      * AuthenticaÃ§Ã£o sem parÃ¢metros
      * @expectedException \Exception
-     * @expectedExceptionMessage ParÃ¢metros invÃ¡lidos
+     * @expectedExceptionMessage Parâmetros inválidos
      * 
      * @return void
      */
@@ -51,7 +51,7 @@ class AuthTest extends ServiceTestCase
     /**
      * Teste da autenticaÃ§Ã£o invÃ¡lida
      * @expectedException \Exception
-     * @expectedExceptionMessage Login ou senha invÃ¡lidos
+     * @expectedExceptionMessage Login ou senha inválidos
      * 
      * @return void
      */

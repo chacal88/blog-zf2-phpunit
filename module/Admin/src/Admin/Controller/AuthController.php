@@ -37,7 +37,7 @@ class AuthController extends ActionController
     {
         $request = $this->getRequest();
         if (! $request->isPost()) {
-            throw new \Exception('Acesso invÃ¡lido');
+            throw new \Exception('Acesso inválido');
         }
         
         $data = $request->getPost();

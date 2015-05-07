@@ -21,18 +21,18 @@ use Zend\Authentication\AuthenticationService;
 class AuthTest extends ServiceTestCase
 {
 
-    /**
-     * AuthenticaÃ§Ã£o sem parÃ¢metros
-     * @expectedException \Exception
-     * 
-     * @return void
-     */
-    public function testAuthenticateWithoutParams()
-    {
-        $authService = $this->serviceManager->get('Admin\Service\Auth');
+//     /**
+//      * AuthenticaÃ§Ã£o sem parÃ¢metros
+//      * @expectedException \Exception
+//      * 
+//      * @return void
+//      */
+//     public function testAuthenticateWithoutParams()
+//     {
+//         $authService = $this->serviceManager->get('Admin\Service\Auth');
         
-        $authService->authenticate();
-    }
+//         $authService->authenticate();
+//     }
 
     /**
      * AuthenticaÃ§Ã£o sem parÃ¢metros
@@ -68,7 +68,7 @@ class AuthTest extends ServiceTestCase
     /**
      * Teste da autenticaÃ§Ã£o InvÃ¡lida
      * @expectedException \Exception
-     * @expectedExceptionMessage Login ou senha invÃ¡lidos
+     * @expectedExceptionMessage Login ou senha inválidos
      * 
      * @return void
      */

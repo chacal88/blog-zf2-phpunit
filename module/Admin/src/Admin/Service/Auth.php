@@ -39,7 +39,7 @@ class Auth extends Service
      * @param array $params            
      * @return array
      */
-    public function authenticate($params)
+    public function authenticate()
     {
         if (! isset($params['username']) || ! isset($params['password'])) {
             throw new \Exception("Parâmetros inválidos");
